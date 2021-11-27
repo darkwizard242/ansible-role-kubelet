@@ -4,7 +4,7 @@
 
 - name: "Create {{ kubelet_systemd_dropin_dir }} for {{ kubelet_app }} systemd dropin directory."
   file:
-    path: "{{ {{ kubelet_systemd_dropin_dir }} }}"
+    path: "{{ kubelet_systemd_dropin_dir }}"
     state: directory
     mode: '0644'
     owner: root
