@@ -1,0 +1,31 @@
+---
+# handlers file for kubelet
+# These handlers will only run when the virtualization type is NOT docker itself as docker doesn't support/handle systemd very well!
+
+- name: "Create {{ kubelet_systemd_dropin_dir }} for {{ kubelet_app }} systemd dropin directory."
+  file:
+    path: "{{ {{ kubelet_systemd_dropin_dir }} }}"
+    state: directory
+    mode: '0644'
+    owner: root
+    group: root
+
+- name: "Provision systemd service dropin for {{ kubelet_app }}"
+  template:
+    src: "{{ kubelet_systemd_dropin_source_file }}"
+    dest: "{{ kubelet_systemd_dropin_dir }}/{{ kubelet_systemd_dropin_dest_file }}"
+    mode: '0644'
+    owner: root
+    group: root
+
+- name: "Enable {{ kubelet_app }} systemd service"
+  service:
+    name: "{{ kubelet_app }}"
+    enabled: "{{ kubelet_systemd_service_enable_state }}"
+  when: kubelet_systemd_service_setup
+
+- name: "Set {{ kubelet_app }} systemd service state"
+  service:
+    name: "{{ kubelet_app }}"
+    state: "{{ kubelet_systemd_service_state }}"
+  when: kubelet_systemd_service_setup
