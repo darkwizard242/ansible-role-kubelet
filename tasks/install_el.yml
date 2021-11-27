@@ -1,0 +1,8 @@
+---
+# tasks file for kubelet | EL Family
+
+- name: EL Family | Downloading archive for {{ kubelet_app }} {{ kubelet_version }} to {{ kubelet_bin_path }}
+  get_url:
+    url: "{{ kubelet_dl_url }}"
+    dest: "{{ kubelet_bin_path }}/{{ kubelet_app }}"
+    mode: "{{ kubelet_file_mode }}"
