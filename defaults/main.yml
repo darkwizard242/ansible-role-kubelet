@@ -1,0 +1,10 @@
+---
+# defaults file for kubelet
+
+kubelet_app: kubelet
+kubelet_version: 1.22.4
+kubelet_os: linux
+kubelet_arch: amd64
+kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
+kubelet_bin_path: /usr/local/bin
+kubelet_file_mode: '0755'
