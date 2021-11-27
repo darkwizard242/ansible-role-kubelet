@@ -3,3 +3,5 @@
   hosts: all
   roles:
     - role: darkwizard242.kubelet
+  vars:
+    kubelet_systemd_service_setup: false
