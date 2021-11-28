@@ -1,0 +1,19 @@
+---
+# defaults file for kubelet
+
+kubelet_app: kubelet
+kubelet_version: 1.22.4
+kubelet_os: linux
+kubelet_arch: amd64
+kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
+kubelet_bin_path: /usr/local/bin
+kubelet_file_mode: '0755'
+kubelet_systemd_service_setup: true
+kubelet_systemd_template_out_dir: /etc/systemd/system
+kubelet_systemd_template_in_file: kubelet.service.j2
+kubelet_systemd_template_out_file: kubelet.service
+kubelet_systemd_dropin_dir: "{{ kubelet_systemd_template_out_dir }}/{{ kubelet_app }}.service.d"
+kubelet_systemd_dropin_source_file: 10-kubeadm.conf.j2
+kubelet_systemd_dropin_dest_file: 10-kubeadm.conf
+kubelet_systemd_service_enable_state: yes
+kubelet_systemd_service_state: started
