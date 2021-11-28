@@ -9,6 +9,7 @@
     mode: '0644'
     owner: root
     group: root
+  when: kubelet_systemd_service_setup
 
 - name: "Provision systemd service dropin for {{ kubelet_app }}"
   template:
@@ -17,6 +18,7 @@
     mode: '0644'
     owner: root
     group: root
+  when: kubelet_systemd_service_setup
 
 - name: "Enable {{ kubelet_app }} systemd service"
   service:
