@@ -4,4 +4,5 @@
   roles:
     - role: darkwizard242.kubelet
   vars:
+    ansible_python_interpreter: /usr/bin/python3
     kubelet_systemd_service_setup: false
