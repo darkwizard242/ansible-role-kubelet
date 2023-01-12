@@ -2,13 +2,13 @@
 # tasks file for kubelet | EL Family
 
 - name: EL Family | Downloading archive for {{ kubelet_app }} {{ kubelet_version }} to {{ kubelet_bin_path }}
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ kubelet_dl_url }}"
     dest: "{{ kubelet_bin_path }}/{{ kubelet_app }}"
     mode: "{{ kubelet_file_mode }}"
 
 - name: "EL Family | Provision systemd service for {{ kubelet_app }} as {{ kubelet_systemd_template_out_dir }}/{{ kubelet_systemd_template_out_file }}"
-  template:
+  ansible.builtin.template:
     src: "{{ kubelet_systemd_template_in_file }}"
     dest: "{{ kubelet_systemd_template_out_dir }}/{{ kubelet_systemd_template_out_file }}"
     mode: '0644'
