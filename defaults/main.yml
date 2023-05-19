@@ -2,7 +2,7 @@
 # defaults file for kubelet
 
 kubelet_app: kubelet
-kubelet_version: 1.25.7
+kubelet_version: 1.26.5
 kubelet_os: linux
 kubelet_arch: amd64
 kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
