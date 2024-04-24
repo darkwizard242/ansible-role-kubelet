@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 kubelet_app: kubelet
-kubelet_version: 1.27.4
+kubelet_version: 1.30.0
 kubelet_os: linux
 kubelet_arch: amd64
 kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
@@ -38,7 +38,7 @@ kubelet_systemd_service_state: started
 Variable                             | Description
 ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubelet_app                          | Defines the app to install i.e. **kubelet**
-kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.27.4**
+kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.0**
 kubelet_os                           | Defines OS type. Defaults to: **linux**
 kubelet_arch                         | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 kubelet_dl_url                       | Defines URL to download the kubelet binary from.
