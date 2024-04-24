@@ -1,4 +1,4 @@
-[![build-test](https://github.com/darkwizard242/ansible-role-kubelet/workflows/build-and-test/badge.svg?branch=master)](https://github.com/darkwizard242/ansible-role-kubelet/actions?query=workflow%3Abuild-and-test) [![release](https://github.com/darkwizard242/ansible-role-kubelet/workflows/release/badge.svg)](https://github.com/darkwizard242/ansible-role-kubelet/actions?query=workflow%3Arelease) ![Ansible Role](https://img.shields.io/ansible/role/57090?color=dark%20green%20) ![Ansible Role](https://img.shields.io/ansible/role/d/57090?label=role%20downloads) ![Ansible Quality Score](https://img.shields.io/ansible/quality/57090?label=ansible%20quality%20score) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=alert_status)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=security_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/ansible-role-kubelet?label=release) ![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/ansible-role-kubelet?color=orange&style=flat-square)
+[![build-test](https://github.com/darkwizard242/ansible-role-kubelet/workflows/build-and-test/badge.svg?branch=master)](https://github.com/darkwizard242/ansible-role-kubelet/actions?query=workflow%3Abuild-and-test) [![release](https://github.com/darkwizard242/ansible-role-kubelet/workflows/release/badge.svg)](https://github.com/darkwizard242/ansible-role-kubelet/actions?query=workflow%3Arelease) ![Ansible Role](https://img.shields.io/ansible/role/d/darkwizard242/kubelet) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ansible-role-kubelet&metric=security_rating)](https://sonarcloud.io/dashboard?id=ansible-role-kubelet) ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/ansible-role-kubelet?label=release) ![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/ansible-role-kubelet?color=orange&style=flat-square)
 
 # Ansible Role: kubelet
 
@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 kubelet_app: kubelet
-kubelet_version: 1.27.4
+kubelet_version: 1.30.0
 kubelet_os: linux
 kubelet_arch: amd64
 kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
@@ -38,7 +38,7 @@ kubelet_systemd_service_state: started
 Variable                             | Description
 ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubelet_app                          | Defines the app to install i.e. **kubelet**
-kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.27.4**
+kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.0**
 kubelet_os                           | Defines OS type. Defaults to: **linux**
 kubelet_arch                         | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 kubelet_dl_url                       | Defines URL to download the kubelet binary from.
