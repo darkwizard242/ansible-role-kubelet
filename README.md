@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 kubelet_app: kubelet
 kubelet_version: 1.30.2
-kubelet_os: linux
-kubelet_arch: amd64
-kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_arch }}/{{ kubelet_app }}
+kubelet_os: "{{ ansible_system | lower }}"
+kubelet_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+kubelet_dl_url: https://dl.k8s.io/release/v{{ kubelet_version }}/bin/{{ kubelet_os }}/{{ kubelet_architecture_map[ansible_architecture] }}/{{ kubelet_app }}
 kubelet_bin_path: /usr/local/bin
 kubelet_file_mode: '0755'
 kubelet_systemd_service_setup: true
@@ -39,8 +47,8 @@ Variable                             | Description
 ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubelet_app                          | Defines the app to install i.e. **kubelet**
 kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.30.2**
-kubelet_os                           | Defines OS type. Defaults to: **linux**
-kubelet_arch                         | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
+kubelet_os                           | Defines OS type.
+kubelet_architecture_map             | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 kubelet_dl_url                       | Defines URL to download the kubelet binary from.
 kubelet_bin_path                     | Defined to dynamically set the appropriate path to store kubelet binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
 kubelet_file_mode                    | Mode for the binary file of kubelet.
