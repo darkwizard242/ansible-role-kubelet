@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 kubelet_app: kubelet
-kubelet_version: 1.31.0
+kubelet_version: 1.31.2
 kubelet_os: "{{ ansible_system | lower }}"
 kubelet_architecture_map:
   amd64: amd64
@@ -46,7 +46,7 @@ kubelet_systemd_service_state: started
 Variable                             | Description
 ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------
 kubelet_app                          | Defines the app to install i.e. **kubelet**
-kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.31.0**
+kubelet_version                      | Defined to dynamically fetch the desired version to install. Defaults to: **1.31.2**
 kubelet_os                           | Defines OS type.
 kubelet_architecture_map             | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 kubelet_dl_url                       | Defines URL to download the kubelet binary from.
