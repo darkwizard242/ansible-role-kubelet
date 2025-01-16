@@ -2,7 +2,7 @@
 # defaults file for kubelet
 
 kubelet_app: kubelet
-kubelet_version: 1.31.3
+kubelet_version: 1.32.1
 kubelet_os: "{{ ansible_system | lower }}"
 kubelet_architecture_map:
   amd64: amd64
